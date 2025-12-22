@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Daily Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Smart Daily Planner</h1>
+
+        <input type="text" id="taskInput" placeholder="Enter task">
+
+        <select id="priority">
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+        </select>
+
+        <button onclick="addTask()">Add Task</button>
+
+        <h3>🔴 High Priority</h3>
+        <ul id="highList"></ul>
+
+        <h3>🟠 Medium Priority</h3>
+        <ul id="mediumList"></ul>
+
+        <h3>🟢 Low Priority</h3>
+        <ul id="lowList"></ul>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

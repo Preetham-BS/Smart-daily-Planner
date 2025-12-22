@@ -1,0 +1,48 @@
+from datetime import datetime
+
+def get_mood():
+    print("\nHow are you feeling today?")
+    print("1. Happy 😊")
+    print("2. Stressed 😓")
+    print("3. Lazy 😴")
+    print("4. Motivated 🔥")
+    return input("Enter choice (1-4): ")
+
+def suggest_tasks(mood, time):
+    suggestions = {
+        "1": ["Learn something new", "Help someone", "Exercise"],
+        "2": ["Take a short break", "Listen to music", "Do easy tasks"],
+        "3": ["Start with 10 min work", "Clean workspace", "Read light content"],
+        "4": ["Work on goals", "Practice coding", "Build a project"]
+    }
+
+    print("\n📝 Suggested Tasks:")
+    for task in suggestions[mood]:
+        print(f"- {task}")
+
+    print(f"\n⏱ Available Time: {time} minutes")
+
+def save_history(mood, time):
+    mood_map = {
+        "1": "Happy",
+        "2": "Stressed",
+        "3": "Lazy",
+        "4": "Motivated"
+    }
+
+    with open("history.txt", "a") as file:
+        file.write(f"{datetime.now()} | Mood: {mood_map[mood]} | Time: {time} mins\n")
+
+def main():
+    print("==== Mood-Based Productivity Assistant ====")
+
+    mood = get_mood()
+    time = input("How much free time do you have (in minutes)? ")
+
+    suggest_tasks(mood, time)
+    save_history(mood, time)
+
+    print("\n✅ Your productivity session is saved!")
+    print("🌟 Have a productive day!")
+
+main()
